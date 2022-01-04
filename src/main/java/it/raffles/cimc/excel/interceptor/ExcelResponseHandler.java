@@ -83,7 +83,7 @@ public class ExcelResponseHandler implements HandlerMethodReturnValueHandler {
 
 			ExcelWriterBuilder builder = EasyExcel.write(response.getOutputStream(), clazz);
 
-			if (!StringUtils.isEmpty(password))
+			if (StringUtils.hasText(password))
 				builder = builder.password(password);
 
 			if (isLongestMatchColumnWidthStyleStrategy)
@@ -98,7 +98,7 @@ public class ExcelResponseHandler implements HandlerMethodReturnValueHandler {
 						throw new RuntimeException(e.getMessage());
 					}
 
-			if (!StringUtils.isEmpty(templateFileName)) {
+			if (StringUtils.hasText(templateFileName)) {
 				writer = builder.withTemplate(getTemplate(templateFileName, templateFolderName)).autoCloseStream(false)
 						.build();
 				writer.fill(data, EasyExcel.writerSheet().build());
