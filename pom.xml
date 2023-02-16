@@ -17,7 +17,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<excel.version>3.1.3</excel.version>
+		<excel.version>3.2.1</excel.version>
 	</properties>
 
 	<dependencies>
